@@ -109,6 +109,12 @@ Now that you've provisioned your AKS cluster, you need to configure `kubectl`. R
 az aks get-credentials --resource-group $(terraform output -raw resource_group_name) --name $(terraform output -raw kubernetes_cluster_name)
 ```
 
+Windows CMD cannot resolve `$(...)` expressions. You must do it manually ...
+
+```
+az aks get-credentials --resource-group MyCluster-rg --name MyCluster
+```
+
 ## Using Container Registry
 
 The provisioning creates a container registry (with cluster name) and do the attaching (role assignment) to AKS cluster. You can use [webMethods Image Creator](https://dev.azure.com/wM-Inno-Container/webmethods-image-creator) to create images and push them to registry.
