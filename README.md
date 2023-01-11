@@ -4,6 +4,16 @@ This tutorial is cloned from [Terraform provision an AKS Cluster tutorial](https
 
 At the end of the tutorial, you have provisioned a Kubernetes Service in Azure (AKS) by using Terraform.
 
+## Why deploy with Terraform?
+
+While you could use the built-in Azure provisioning processes (UI, CLI) for AKS clusters, Terraform provides you with several benefits:
+
+* **Unified Workflow** - If you are already deploying infrastructure to Azure with Terraform, your AKS cluster can fit into that workflow. You can also deploy applications into your AKS cluster using Terraform.
+
+* **Full Lifecycle Management** - Terraform doesn't only create resources, it updates, and deletes tracked resources without requiring you to inspect the API to identify those resources.
+
+* **Graph of Relationships** - Terraform understands dependency relationships between resources. For example, an Azure Kubernetes cluster needs to be associated with a resource group, Terraform won't attempt to create the cluster if the resource group failed to create.
+
 ## Prerequisites
 
 To create resources in Azure, you need a subscription. You can use your Visual Studio Professional Subscription. Furthermore, we need following installed software from Company Portal ...
@@ -21,7 +31,7 @@ To access the AKS, install from Company Portal ...
 
 ### Clone Repository
 
-Clone Git repository [https://github.com/thomas-2020/learn-terraform-provision-aks-cluster-at-sag.git](https://github.com/thomas-2020/learn-terraform-provision-aks-cluster-at-sag.git)
+Clone Git repository [https://github.com/thomas-2020/learn-terraform-provision-aks-cluster-at-sag](https://github.com/thomas-2020/learn-terraform-provision-aks-cluster-at-sag)
 
 ```
 git clone https://github.com/thomas-2020/learn-terraform-provision-aks-cluster-at-sag.git
