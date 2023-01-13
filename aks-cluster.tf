@@ -63,10 +63,27 @@ resource "azurerm_container_registry" "acr" {
   }
 }
 
-// Attaching Container Registry to K8S Cluster ...
+# Attaching Container Registry to K8S Cluster ...
 resource "azurerm_role_assignment" "default" {
   principal_id                     = azurerm_kubernetes_cluster.default.kubelet_identity[0].object_id
   role_definition_name             = "AcrPull"
   scope                            = azurerm_container_registry.acr.id
   skip_service_principal_aad_check = true
 }
+
+# Create Azure Storage account for PVC
+resource "azurerm_storage_account" "default" {
+  name                     = lower( "${var.clusterName}Storage" )
+  resource_group_name      = azurerm_resource_group.default.name
+  location                 = azurerm_resource_group.default.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
+# Create Storage container insode Storage account to stop Microservices Runtime data
+resource "azurerm_storage_container" "default" {
+  name                  = "msr-pv"
+  storage_account_name  = azurerm_storage_account.default.name
+  container_access_type = "private"
+}
+

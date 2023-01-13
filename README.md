@@ -121,4 +121,4 @@ The provisioning creates a container registry (with cluster name) and do the att
 
 ## Cleanup Provisioning
 
-With `terraform destroy` you can delete all resources (which are created during provisioning).
+With `terraform destroy` you can destroy previously-created infrastructure.
