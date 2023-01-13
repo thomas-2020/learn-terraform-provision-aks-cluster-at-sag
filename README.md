@@ -61,8 +61,8 @@ Login to your Azure account: `az login`. This command (typed in command prompt) 
 ```
 ...
     "cloudName": "AzureCloud",
-    "homeTenantId": "d9662eb9-ad98-4e74-a8a2-04ed5d544db6",
-    "id": "e465eb8e-cc28-4320-ae78-892a9a06bcbe",
+    "homeTenantId": "11111111-1111-1111-1111-111111111111",
+    "id": "22222222-2222-2222-2222-222222222222",
     "isDefault": true,
     "managedByTenants": [],
     "name": "Visual Studio Professional Subscription",
