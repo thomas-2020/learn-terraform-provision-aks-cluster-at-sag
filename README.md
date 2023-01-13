@@ -69,7 +69,7 @@ Login to your Azure account: `az login`. This command (typed in command prompt) 
 ...
 ```
 
-Copy/past the ID in field `id` (of the subscription which you want to use) to  `terraform.tfvars` ...
+Copy/past the ID in field `id` (of the subscription which you want to use) to file `terraform.tfvars` ...
 
 ```
 subscriptionId =  "xxxxxxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxx"
@@ -122,3 +122,8 @@ The provisioning creates a container registry (with cluster name) and do the att
 ## Cleanup Provisioning
 
 With `terraform destroy` you can destroy previously-created infrastructure.
+
+## Conclusion
+
+At the end of successfully provisioning, it is time to document and visualize the infrastructure. You can use `terraform graph`. It generates file in DOT format. You can rendering the graph e.g. on [https://edotor.net](https://edotor.net).
+![AKS Cluster Provisioning](graph.png)
