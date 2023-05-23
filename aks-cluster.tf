@@ -74,16 +74,28 @@ resource "azurerm_role_assignment" "default" {
 # Create Azure Storage account for PVC
 resource "azurerm_storage_account" "default" {
   name                     = lower( "${var.clusterName}Storage" )
-  resource_group_name      = azurerm_resource_group.default.name
+#  resource_group_name      = azurerm_resource_group.default.name
+  resource_group_name      = azurerm_kubernetes_cluster.default.node_resource_group
   location                 = azurerm_resource_group.default.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
+  allow_blob_public_access = "true"
 }
 
-# Create Storage container insode Storage account to stop Microservices Runtime data
+# Create Storage container inside Storage account to stop Microservices Runtime data
 resource "azurerm_storage_container" "default" {
   name                  = "msr-pv"
   storage_account_name  = azurerm_storage_account.default.name
   container_access_type = "private"
 }
 
+# Not needed ...
+# Create Disk for mounting in Pod/Persistent Volume
+#resource "azurerm_managed_disk" "disk" {
+#  name                 = "msr-disk"
+#  location             = azurerm_resource_group.default.location
+#  resource_group_name  = azurerm_resource_group.default.name
+#  storage_account_type = "Standard_LRS"
+#  create_option        = "Empty"
+#  disk_size_gb         = "1"
+#}

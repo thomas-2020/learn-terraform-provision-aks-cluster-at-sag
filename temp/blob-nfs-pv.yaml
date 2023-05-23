@@ -1,0 +1,15 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: mypod2
+spec:
+  containers:
+  - name: mypod2
+    image: mcr.microsoft.com/oss/nginx/nginx:1.17.3-alpine
+    volumeMounts:
+    - mountPath: "/mnt/blob"
+      name: volume
+  volumes:
+    - name: volume
+      persistentVolumeClaim:
+        claimName: pvc-blobfuse

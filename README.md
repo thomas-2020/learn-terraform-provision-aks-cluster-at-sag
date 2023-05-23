@@ -1,4 +1,4 @@
-# Learn Terraform - How to provision Azure Kubernetes Service Cluster @ Software AG Environment
+# Learn Terraform - How to deploy Azure Kubernetes Service Cluster @ Software AG Environment
 
 This tutorial is cloned from [Terraform provision an AKS Cluster tutorial](https://developer.hashicorp.com/terraform/tutorials/kubernetes/aks) and extended for use in Software AG environment.
 
