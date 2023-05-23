@@ -1,3 +1,3 @@
-subscriptionId =  "e465eb8e-cc28-4320-ae78-892a9a06bcbe"
+subscriptionId =  "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
 
 clusterName = "MyCluster"
